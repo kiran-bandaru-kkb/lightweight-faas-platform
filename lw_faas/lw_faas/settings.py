@@ -44,9 +44,7 @@ INSTALLED_APPS = [
     'orchestrator',
     'runtime',
     'core',
-
-    # Celery result backend
-    'django_celery_results',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
