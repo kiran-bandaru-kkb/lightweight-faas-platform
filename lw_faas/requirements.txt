@@ -19,3 +19,6 @@ wcwidth~=0.2.13
 six~=1.17.0
 prompt_toolkit~=3.0.51
 djangorestframework~=3.16.1
+urllib3~=2.5.0
+requests~=2.32.5
+prompt_toolkit~=3.0.51

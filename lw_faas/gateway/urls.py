@@ -1,5 +1,6 @@
-from rest_framework.routers import DefaultRouter
-from .views import FunctionInvocationViewSet
-router = DefaultRouter()
-router.register('invocations', FunctionInvocationViewSet, basename='function_invocation')
-urlpatterns = router.urls
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('invoke/<str:function_name>/', views.InvokeView.as_view(), name='invoke-function'),
+]

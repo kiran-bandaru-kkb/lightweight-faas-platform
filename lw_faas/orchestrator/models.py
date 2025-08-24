@@ -71,6 +71,7 @@ class WorkerNode(models.Model):
     def __str__(self):
         return f"{self.hostname} ({self.status})"
 
+
 class FunctionInstance(models.Model):
     """
     Represents an active (warm) instance of a function ready to handle requests.
@@ -102,6 +103,7 @@ class FunctionInstance(models.Model):
 
     def __str__(self):
         return f"Instance of {self.deployment.function.name} on {self.worker.hostname}:{self.port}"
+
 
 class InvocationRequest(models.Model):
     """
@@ -150,9 +152,3 @@ class InvocationRequest(models.Model):
 
     def __str__(self):
         return f"Invocation {self.request_id} - {self.function.name} - {self.status}"
-
-class Worker(models.Model):
-    function = models.ForeignKey(Function, on_delete=models.CASCADE)
-    worker_id = models.CharField(max_length=255, unique=True)
-    is_active = models.BooleanField(default=True)
-    latest_used = models.DateTimeField(auto_now=True)

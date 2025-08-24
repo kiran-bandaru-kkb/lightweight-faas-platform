@@ -1,6 +1,7 @@
-from rest_framework.routers import DefaultRouter
-from .views import RuntimeExecutionViewSet
-router = DefaultRouter()
+from django.urls import path
+from . import views
 
-router.register(r'executions', RuntimeExecutionViewSet, basename='runtime_execution')
-urlpatterns = router.urls
+urlpatterns = [
+    path('heartbeat/', views.WorkerHeartbeatView.as_view(), name='worker-heartbeat'),
+    path('instance_ready/', views.InstanceReadyView.as_view(), name='instance-ready'),
+]
